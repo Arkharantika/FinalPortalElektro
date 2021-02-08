@@ -302,6 +302,11 @@
                                 <span class="sidebar-mini-visible">KP</span><span class="sidebar-mini-hidden text-primary">Kerja Praktek</span>
                             </li>
                             <li>
+                            <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('PresensiSeminarKP')}}">
+                                    <i class="si si-note"></i><span class="sidebar-mini-hide">Bantuan Catatan Klaim Seminar KP</span>
+                                </a>
+                            </li>   
+                            <li>
                                 <a class="{{ request()->is('kp/pendaftaran') || request()->is('kp/pendaftaran/*') ? ' active' : '' }}" href="{{route('kp.pendaftaran.index')}}">
                                     <i class="si si-badge"></i><span class="sidebar-mini-hide">Pendaftaran KP</span>
                                 </a>
@@ -751,14 +756,14 @@
             <!-- END Main Container -->
 
             <!-- Footer -->
-            <footer id="page-footer" class="opacity-0">
+            <!-- <footer id="page-footer" class="opacity-0">
                 <div class="content py-20 font-size-sm clearfix">
                     <div class="text-center">
                         &copy; <span class="js-year-copy">2020</span>
                         <a class="font-w600" href="https://www.instagram.com/ydhiksm/" target="_blank">Yudhi Kusuma</a>. All rights reserved.
                     </div>
                 </div>
-            </footer>
+            </footer> -->
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
