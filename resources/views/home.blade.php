@@ -324,12 +324,12 @@
 
                 <div class="col-md-6">
                     <a class="block block-rounded" href="{{route('admin.permohonan.index')}}">
-                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-info">
+                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-success">
                             <div class="ribbon-box">
                             {{$ask_permohonan ?? ''}}
                             </div>
                             <div class="text-center py-30">
-                                <i class="fa fa-briefcase fa-3x text-info mb-15 float-left"></i>
+                                <i class="fa fa-briefcase fa-3x text-success mb-15 float-left"></i>
                                 <h5 class="mb-0">Mahasiswa Siap Dibuatkan Surat Permohonan KP</h5>
                                 <div class="text-muted">Mohon segera berikan tanggapan</div>
                             </div>
@@ -354,12 +354,12 @@
 
                 <div class="col-md-6">
                     <a class="block block-rounded" href="{{route('admin.laporan.index')}}">
-                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-success">
+                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-info">
                             <div class="ribbon-box">
                                 {{$ask_nilai ?? ''}}
                             </div>
                             <div class="text-center py-30">
-                                <i class="fa fa-file-o fa-3x text-success mb-15 float-left"></i>
+                                <i class="fa fa-file-o fa-3x text-info mb-15 float-left"></i>
                                 <h5 class="mb-0">Mahasiswa Membutuhkan Nilai Kerja Praktik</h5>
                                 <div class="text-muted">Mohon segera berikan tanggapan</div>
                             </div>
