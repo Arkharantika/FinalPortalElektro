@@ -14,6 +14,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+//Tambahan Import
+use App\Models\notifikasi_kp;
+use App\Models\Dokumenkp;
+use App\Models\Nilaikp;
+
+
 class HomeController extends Controller
 {
     //Controller Dashboard Ketika User Login
@@ -46,6 +52,14 @@ class HomeController extends Controller
         if($user->isLogin == 1){
             //Cek apakah user dosen atau bukan
             if($dosen != null){
+
+                //Tambahan Variable untuk notifikasi pada Koor Kp
+                $ask_surattugas = notifikasi_kp::where('status_ask_surat_tugas',1)->count();
+                $ask_permohonan = Dokumenkp::where('file_proposal','!=',null)->where('file_balasan',null)->where('file_penugasan',null)
+                    ->where('file_surattugas',null)->count();
+                $ask_nilai = Dokumenkp::join('kp_nilai','kp_nilai.kp_id','=','kp_dokumen.kp_id')
+                    ->where('file_laporan','!=',null)->where('huruf',null)->count();
+    
                 $kp = Kp::where('status_kp','PENDING')->count();
                 $semkp = Seminarkp::where('status_seminarkp','PENDING')->count();
                 $ta = Ta::where('status_ta','SETUJU')->where('cetak_ta','0')->count();
@@ -66,7 +80,7 @@ class HomeController extends Controller
                 // dd($logbookta);
                 return view('home',compact('dosen','user','kp','semkp','semhas','pendadaran','ta',
                     'tapending','semhaspending','pendadaranpending','ict','meka','sel',
-                    'bimbinganta','bimbingansemhas','bimbinganpendadaran','logbookta'));
+                    'bimbinganta','bimbingansemhas','bimbinganpendadaran','logbookta','ask_permohonan','ask_surattugas','ask_nilai'));
             //Cek apakah user mahasiswa
             }elseif($mhs != null){
                 $kp = Kp::statuskp($mhs->id)->get()->last();

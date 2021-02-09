@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use PDF;
 use Carbon\Carbon;
 
+//Tambahan Import
+use App\Models\notifikasi_kp;
+
 class KpController extends Controller
 {
     /**
@@ -40,12 +43,15 @@ class KpController extends Controller
         $waiting = Kp::waiting($nim)->get()->last();
         $data = Mahasiswa::pemkp($nim)->first();
         // dd($data);
+
+        //variable untuk mencari data dari tabel notif_kp
+        $checking = notifikasi_kp::where('nim_mhs',$nim)->get()->first();
         
         if ($setuju != null) {
             return view('kp.kp_setuju',compact('setuju')); //Input pengajuan KP Disetujui
         }else if ($waiting != null) {
             $accPenugasankp = Accpembimbingkp::where('mahasiswa_id','=',$waiting->mahasiswa_id)->first();
-            return view('kp.kp_waiting',compact('waiting','accPenugasankp')); //KP menunggu balasan
+            return view('kp.kp_waiting',compact('waiting','accPenugasankp','checking')); //KP menunggu balasan
         }else if ($pending != null) {
             return view('kp.kp_pending',compact('pending')); //Input pengajuan berhasil diajukan
         }else if ($edit != null) {

@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
 
+//Tambahan Import
+use App\Models\Mahasiswa;
+use App\Models\notifikasi_kp;
+
 class BalasanController extends Controller
 {
     /**
@@ -96,6 +100,12 @@ class BalasanController extends Controller
                 Suratkp::updateOrCreate(['kp_id' => $id],[
                     'no_surat' => $request->no_surat,
                     'tanggal_surat' => $request->tanggal_surat,
+                ]);
+
+                $confirm = KP::where('kp.id',$id)->get()->first()->mahasiswa_id;
+                $checklist = Mahasiswa::where('ref_mahasiswa.id',$confirm)->get()->first()->nim;
+                notifikasi_kp::where('nim_mhs',$checklist)->update([
+                    'status_ask_surat_tugas' => 0,
                 ]);
 
                 return redirect(route('admin.permohonan.index'))->with('message','Pengajuan KP Berhasil di Update!');

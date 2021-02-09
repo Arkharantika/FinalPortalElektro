@@ -14,6 +14,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+//Tambahan Import
+use App\Models\notifikasi_kp;
+
 class KpController extends Controller
 {
     /**
@@ -106,6 +109,9 @@ class KpController extends Controller
 
     public function updatePenugasankp(Request $request)
     {
+        $checklist = Accpembimbingkp::join('ref_mahasiswa','ref_mahasiswa.id','=','kp_acc_pembimbing.mahasiswa_id')
+        ->where('mahasiswa_id',$request->mhs_id)->get()->first();
+
         $validatedData = $request->validate([
             'penugasan' => 'required',
             'mhs_id' => 'required',
@@ -119,6 +125,11 @@ class KpController extends Controller
         $kp->penugasan_kp = $request->penugasan;
         $kp->tgl_penugasan_kp = date('Y-m-d');
         $kp->save();
+
+        notifikasi_kp::create([
+            'nim_mhs' => $checklist->nim,
+            'status_ask_surat_tugas' => 1,
+        ]);
 
         return redirect()->back();
     }

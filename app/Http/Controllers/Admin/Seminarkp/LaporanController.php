@@ -32,6 +32,8 @@ class LaporanController extends Controller
         $data = Seminarkp::semkpsetuju();
 
         return view('admin.semkp.laporan.index',compact('data'));
+
+        // return $data;
     }
 
     /**
