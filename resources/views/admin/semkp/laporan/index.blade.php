@@ -21,10 +21,10 @@
                 <tr>
                     <th class="d-none d-sm-table-cell text-center" style="width: 7%;">No</th>
                     <th class="d-none d-sm-table-cell text-center" style="width: 3%;">NIM</th>
-                    <th class="text-center" style="width: 30%;">Nama</th>
+                    <th class="text-center" style="width: 20%;">Nama</th>
                     <th class="d-none d-sm-table-cell  text-center" style="width: 30%;">Judul</th>
                     <th class="text-center" style="width: 10%;">Status</th>
-                    <th class="text-center" style="width: 20%;">Action</th>
+                    <th class="text-center" style="width: 30%;">Action</th>
                 </tr>
             </thead>
             <tbody> 
@@ -52,6 +52,7 @@
                         @if($row->file_laporan != null)
                         <a href="{{route('admin.laporan.show',$row->kp_id)}}" class="btn btn-sm btn-alt-secondary mr-5 mb-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat Laporan" target="_blank"><i class="fa fa-eye"></i></a>
                         <a href="{{route('admin.laporan.edit',$row->id)}}" class="btn btn-sm btn-alt-warning mr-5 mb-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nilai"><i class="fa fa-edit"></i></a>
+                        <a href="{{url('LembarPengesahanKP/bagian/Setuju/'.$row->nim)}}" class="btn btn-sm btn-alt-success mr-5 mb-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui Laporan"><i class="fa fa-check"></i></a>
                         @endif
                     </td>
                 </tr>

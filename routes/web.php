@@ -298,5 +298,25 @@ Route::namespace('Admin')->name('kalab.')->middleware('can:kalab')->group(functi
     Route::resource('bebaslab','Kalab\KalabController');
 });
 
-//Route Rebuild
+
+
+/// [] =================================== [] 
+/// [] == <----- List New Route ------> == [] 
+/// [] =================================== [] 
+
+// -> Untuk Presensi Seminar Tambahan Pada Mahasiswa
 Route::resource('PresensiSeminarKP','KehadiranSeminarKPController');
+
+// -> Untuk Lembar Pengesahan KP pada Mahasiswa
+Route::resource('LembarPengesahanKP','LembarPengesahanKPController');
+Route::get('LembarPengesahanKP/bagian/Proposal','LembarPengesahanKPController@lemperProposal')->name('lemperProposal');
+Route::get('LembarPengesahanKP/bagian/Laporan','LembarPengesahanKPController@lemperLaporan')->name('lemperLaporan');
+
+// -> Persetujuan dari koor KP
+Route::get('LembarPengesahanKP/bagian/Setuju/{setuju}','LembarPengesahanKPController@setuju')->name('setuju');
+
+// -> Persetujuan dari Kaprodi
+Route::get('LembarPengesahanKP/Kaprodi/Setuju/{setuju}','LembarPengesahanKPController@setujuKaprodi')->name('setujuKaprodi');
+
+
+

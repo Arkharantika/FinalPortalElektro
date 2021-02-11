@@ -302,6 +302,12 @@
                                 <span class="sidebar-mini-visible">KP</span><span class="sidebar-mini-hidden text-primary">Kerja Praktek</span>
                             </li>
                             <li>
+                            <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('LembarPengesahanKP')}}">
+                                    <i class="si si-doc"></i><span class="sidebar-mini-hide">Lembar Pengesahan</span>
+                                </a>
+                            </li>   
+                            <li>
+                            <li>
                             <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('PresensiSeminarKP')}}">
                                     <i class="si si-note"></i><span class="sidebar-mini-hide">Bantuan Catatan Klaim Seminar KP</span>
                                 </a>

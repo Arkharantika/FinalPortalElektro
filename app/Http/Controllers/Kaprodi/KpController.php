@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kaprodi;
 
 use App\Models\Mahasiswa;
+use App\Models\Seminarkp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,10 +25,12 @@ class KpController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $dataKP = Seminarkp::semkpsetuju();
+
         $data = Mahasiswa::mhsall();
         // dd($data);
-        return view('kaprodi.kp.index',compact('data'));
+        return view('kaprodi.kp.index',compact('data','dataKP'));
     }
 
     /**

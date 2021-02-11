@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
 
+//Tambahan Import
+use App\Models\Mahasiswa;
+use App\Models\lemperKP;
+
+
 class PengajuanController extends Controller
 {
     /**
@@ -86,12 +91,21 @@ class PengajuanController extends Controller
     {
         switch ($request->input('action')) {
             case 'setuju':
+
+                $select = KP::join('ref_mahasiswa','ref_mahasiswa.id','=','kp.mahasiswa_id')
+                    ->where('kp.id',$id)->get()->first();
+
                 KP::where('kp.id',$id)->update([
                     'status_kp' =>'WAITING'
                 ]);
 
                 Acckp::updateOrCreate(['kp_id' => $id],[
                     'pengajuan' => date('Y-m-d H:i:s'),
+                ]);
+
+                lemperKP::create([
+                    'nim_mhs'  => $select->nim,
+                    'nama_mhs' => $select->nama_mhs
                 ]);
 
                 return redirect(route('admin.pengajuan.index'))->with('message','Pengajuan KP Berhasil di Update!');
