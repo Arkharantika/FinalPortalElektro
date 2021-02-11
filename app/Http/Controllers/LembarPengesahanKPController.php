@@ -115,6 +115,10 @@ class LembarPengesahanKPController extends Controller
         ->join('ref_dosen','ref_dosen.id','=','ref_mahasiswa.pem_kp')
         ->where('nim',$mhs->nim)->get()->first();
 
+        if($complete == ''){
+            return view('errors/datakosong');
+        }
+
         $kaprodi = Jabatan::kaprodi();
         $koorkp = Jabatan::kp();
 
