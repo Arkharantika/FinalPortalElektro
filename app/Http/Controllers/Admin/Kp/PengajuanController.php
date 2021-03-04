@@ -12,6 +12,7 @@ use PDF;
 //Tambahan Import
 use App\Models\Mahasiswa;
 use App\Models\lemperKP;
+use App\Models\lempropKP;
 
 
 class PengajuanController extends Controller
@@ -101,6 +102,13 @@ class PengajuanController extends Controller
 
                 Acckp::updateOrCreate(['kp_id' => $id],[
                     'pengajuan' => date('Y-m-d H:i:s'),
+                ]);
+        
+                // Starting to Create Lembar Pengesahan Data
+                
+                lempropKP::create([
+                    'nim_mhs'  => $select->nim,
+                    'nama_mhs' => $select->nama_mhs
                 ]);
 
                 lemperKP::create([

@@ -308,21 +308,6 @@
                 </div>
 
                 <div class="col-md-6">
-                    <a class="block block-rounded" href="{{route('admin.seminarkp.index')}}">
-                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-info">
-                            <div class="ribbon-box">
-                                {{$semkp ?? ''}}
-                            </div>
-                            <div class="text-center py-30">
-                                <i class="fa fa-tasks fa-3x text-info mb-15 float-left"></i>
-                                <h5 class="mb-0">Mahasiswa Mendaftar Seminar KP</h5>
-                                <div class="text-muted">Mohon segera berikan tanggapan</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-6">
                     <a class="block block-rounded" href="{{route('admin.permohonan.index')}}">
                         <div class="block-content block-content-full ribbon ribbon-modern ribbon-success">
                             <div class="ribbon-box">
@@ -345,7 +330,22 @@
                             </div>
                             <div class="text-center py-30">
                                 <i class="si si-envelope-open fa-3x text-primary mb-15 float-left"></i>
-                                <h5 class="mb-0">Mahasiswa Membutuhkan Persetujuan Kerja Praktik</h5>
+                                <h5 class="mb-0">Mahasiswa Membutuhkan Surat Tugas Kerja Praktik</h5>
+                                <div class="text-muted">Mohon segera berikan tanggapan</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6">
+                    <a class="block block-rounded" href="{{route('admin.seminarkp.index')}}">
+                        <div class="block-content block-content-full ribbon ribbon-modern ribbon-info">
+                            <div class="ribbon-box">
+                                {{$semkp ?? ''}}
+                            </div>
+                            <div class="text-center py-30">
+                                <i class="fa fa-tasks fa-3x text-info mb-15 float-left"></i>
+                                <h5 class="mb-0">Mahasiswa Mendaftar Seminar KP</h5>
                                 <div class="text-muted">Mohon segera berikan tanggapan</div>
                             </div>
                         </div>

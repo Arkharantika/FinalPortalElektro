@@ -102,12 +102,6 @@ class BalasanController extends Controller
                     'tanggal_surat' => $request->tanggal_surat,
                 ]);
 
-                $confirm = KP::where('kp.id',$id)->get()->first()->mahasiswa_id;
-                $checklist = Mahasiswa::where('ref_mahasiswa.id',$confirm)->get()->first()->nim;
-                notifikasi_kp::where('nim_mhs',$checklist)->update([
-                    'status_ask_surat_tugas' => 0,
-                ]);
-
                 return redirect(route('admin.permohonan.index'))->with('message','Pengajuan KP Berhasil di Update!');
                 break;
     

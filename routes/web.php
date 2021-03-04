@@ -306,6 +306,7 @@ Route::namespace('Admin')->name('kalab.')->middleware('can:kalab')->group(functi
 
 // -> Untuk Presensi Seminar Tambahan Pada Mahasiswa
 Route::resource('PresensiSeminarKP','KehadiranSeminarKPController');
+Route::resource('PresensiSeminarHasil','KehadiranSeminarHasilController');
 
 // -> Untuk Lembar Pengesahan KP pada Mahasiswa
 Route::resource('LembarPengesahanKP','LembarPengesahanKPController');
@@ -314,9 +315,12 @@ Route::get('LembarPengesahanKP/bagian/Laporan','LembarPengesahanKPController@lem
 
 // -> Persetujuan dari koor KP
 Route::get('LembarPengesahanKP/bagian/Setuju/{setuju}','LembarPengesahanKPController@setuju')->name('setuju');
+Route::get('LembarPengesahanKP/bagian/SetujuProposal/{setuju}','LembarPengesahanKPController@setujuProposal')->name('setujuProposal');
 
 // -> Persetujuan dari Kaprodi
 Route::get('LembarPengesahanKP/Kaprodi/Setuju/{setuju}','LembarPengesahanKPController@setujuKaprodi')->name('setujuKaprodi');
+Route::get('LembarPengesahanKP/Kaprodi/SetujuProposal/{setuju}','LembarPengesahanKPController@setujuKaprodiProposal')
+    ->name('setujuKaprodiProposal');
 
 
 

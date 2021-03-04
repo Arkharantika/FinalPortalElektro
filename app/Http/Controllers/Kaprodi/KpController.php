@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Kaprodi;
 
 use App\Models\Mahasiswa;
 use App\Models\Seminarkp;
+use App\Models\Kp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,15 @@ class KpController extends Controller
     {   
         $dataKP = Seminarkp::semkpsetuju();
 
-        $data = Mahasiswa::mhsall();
+        // $data = Mahasiswa::mhsall();
+
+        $data = Kp::getwaiting()->join('kp_dokumen','kp_dokumen.kp_id','=','kp.id')
+        ->join('kp_acc_pembimbing','kp_acc_pembimbing.mahasiswa_id','=','kp.mahasiswa_id')
+        // ->join('ref_mahasiswa','ref_mahasiswa.id','=','kp_acc_pembimbing.mahasiswa_id')
+        ->get();
+
         // dd($data);
+
         return view('kaprodi.kp.index',compact('data','dataKP'));
     }
 

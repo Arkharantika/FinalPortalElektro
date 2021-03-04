@@ -29,11 +29,18 @@
                     <!-- Step 1 -->
                     <div class="tab-pane active text-center" id="wizard-validation-classic-step1" role="tabpanel">
                         <div class="form-group">
-                            <!-- <a class="btn btn-success mr-5 mb-5" href="{{url('LembarPengesahanKP/bagian/Proposal')}}" target="_blank">Lembar Pengesahan Proposal KP</a> -->
+                            <a class="btn btn-success mr-5 mb-5" href="{{url('LembarPengesahanKP/bagian/Proposal')}}" target="_blank">Lembar Pengesahan Proposal KP</a>
                             <a class="btn btn-info mr-5 mb-5" href="{{url('LembarPengesahanKP/bagian/Laporan')}}" target="_blank">Lembar Pengesahan Laporan Seminar KP</a>
                         </div>
                     </div>
                     <!-- END Step 1 -->
+
+                    <p> 
+                        <strong>Catatan</strong> 
+                    </p>
+                    <p> 1. Untuk Mendapatkan Tanda Tangan Pembimbing (Laporan / Proposal Harus Disetujui oleh Pembimbing Pada Sistem) </p>
+                    <p> 2. Untuk Mendapatkan Tanda Tangan Koordinator KP (Hubungi Koordinator KP) </p>
+                    <p> 3. Untuk Mendapatkan Tanda Tangan Kaprodi (Hubungi Kaprodi) </p>
 
                 </div>
                 <!-- END Steps Content -->

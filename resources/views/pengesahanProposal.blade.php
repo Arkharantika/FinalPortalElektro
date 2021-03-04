@@ -36,7 +36,7 @@
                         <strong>HALAMAN PENGESAHAN</strong>
                     </p>
                     <p style="text-align: center; font-size: 14px; margin-bottom:0; padding-bottom:0; line-height: 1.5; text-transform:uppercase">
-                        <strong>{{ $complete->judul_seminar}}</strong>
+                        <strong>PRoposal Kerja Praktik</strong>
                     </p>
                     <p style="text-align: center; font-size: 14px; margin-top:0; padding-top:0; text-transform: uppercase; line-height: 1.5;">
                         <strong> {{ $complete->perusahaan_nama}} </strong>
@@ -57,7 +57,7 @@
                         
                             <!-- Tanda Tangan Koordinator Kerja Praktik -->
                             <td style="width: 50%"><br><br>Koordinator Kerja Praktik<br>
-                            @if(($complete->yes_koor ?? '') == 1)
+                            @if(($complete->ya_koor ?? '') == 1)
                                 @if(($koorkp->signature_dosen))
                                 <img src="{{ asset('file_ttd/'.$koorkp->signature_dosen) }}" width="100" height="80" style="postion: relative; z-index: 1; top:10%;"/>
                                 @else       
@@ -70,7 +70,7 @@
 
                             <!-- Tanda Tangan Dosen Pembimbing -->
                             <td style="width: 50%; text-align: right;"><br><br>Pembimbing Kerja Praktik<br>
-                            @if(($complete->yes_pembimbing ?? '') == 1)
+                            @if(($complete->ya_pembimbing ?? '') == 1)
                                 @if($complete->signature_dosen)
                                 <img src="{{ asset('file_ttd/'.$complete->signature_dosen) }}" width="100" height="80" style="postion: relative; z-index: 1; top:10%;"/>
                                 @else
@@ -91,7 +91,7 @@
                     <table style="width: 100%; text-center">
                         <tr>
                         <td style="width: 100%; text-align: center;"><br><br>Kepala Prodi Teknik Elektro<br>
-                            @if(($complete->yes_kaprodi ?? '') == 1)
+                            @if(($complete->ya_kaprodi ?? '') == 1)
                                 @if($kaprodi->signature_dosen)
                                 <img src="{{ asset('file_ttd/'.$kaprodi->signature_dosen) }}" width="100" height="80" style="postion: relative; z-index: 1; top:10%;"/>
                                 @else

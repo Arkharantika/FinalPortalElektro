@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Kp;
 
 use App\Models\Kp;
 use App\Models\Jabatan;
+use App\Models\Mahasiswa;
+use App\Models\notifikasi_kp;
 use App\Models\Suratkp;
 use App\Models\Acckp;
 use App\Http\Controllers\Controller;
@@ -43,6 +45,13 @@ class PenugasanController extends Controller
     public function show($id)
     {
         $data = Kp::cetakpenugasan($id);
+
+        $confirm = KP::where('kp.id',$id)->get()->first()->mahasiswa_id;
+        $checklist = Mahasiswa::where('ref_mahasiswa.id',$confirm)->get()->first()->nim;
+        notifikasi_kp::where('nim_mhs',$checklist)->update([
+            'status_ask_surat_tugas' => 0,
+        ]);
+
         $jabatan = Jabatan::dekan();
         // dd($data);
         $config = [

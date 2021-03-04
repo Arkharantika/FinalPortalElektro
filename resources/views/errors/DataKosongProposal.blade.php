@@ -14,7 +14,7 @@
                 <h1 class="h2 font-w700 mt-30 mb-10">Oops.. tidak ada data ...</h1>
                 <br><br>
                 <h4 class="h4 font-w400 text-muted mb-50">Hal ini terjadi karena anda merupakan Mahasiswa Lama, 
-                <br> atau memang anda belum mendaftar Seminar KP
+                <br> atau memang anda belum melakukan pendaftaran Kerja Praktek
                 <br><br>Silahkan ajukan persyaratan kepada koordinator kerja praktek</h4>
             </div>
         </div>

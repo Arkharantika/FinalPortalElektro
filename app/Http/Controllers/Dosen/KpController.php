@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //Tambahan Import
 use App\Models\notifikasi_kp;
 use App\Models\lemperKP;
+use App\Models\lempropKP;
 
 class KpController extends Controller
 {
@@ -101,9 +102,16 @@ class KpController extends Controller
 
     public function updateProposalkp(Request $request)
     {
+        $checklist = Accpembimbingkp::join('ref_mahasiswa','ref_mahasiswa.id','=','kp_acc_pembimbing.mahasiswa_id')
+        ->where('mahasiswa_id',$request->mhs_id)->get()->first();
+           
         $data = Accpembimbingkp::where('mahasiswa_id',$request->mhs_id)->first();
         $data->proposal_kp = $request->status;
         $data->save();
+
+        lempropKP::where('nim_mhs',$checklist->nim)->update([
+            'ya_pembimbing' => 1,
+        ]);
 
         return response()->json(['message' => 'User status updated successfully.']);
     }

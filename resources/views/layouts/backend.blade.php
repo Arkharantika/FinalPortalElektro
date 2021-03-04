@@ -303,13 +303,13 @@
                             </li>
                             <li>
                             <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('LembarPengesahanKP')}}">
-                                    <i class="si si-doc"></i><span class="sidebar-mini-hide">Lembar Pengesahan</span>
+                                    <i class="si si-doc"></i><span class="sidebar-mini-hide">Lembar Pengesahan KP</span>
                                 </a>
                             </li>   
                             <li>
                             <li>
                             <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('PresensiSeminarKP')}}">
-                                    <i class="si si-note"></i><span class="sidebar-mini-hide">Bantuan Catatan Klaim Seminar KP</span>
+                                    <i class="si si-note"></i><span class="sidebar-mini-hide">Bantuan Presensi Seminar KP</span>
                                 </a>
                             </li>   
                             <li>
@@ -346,6 +346,11 @@
                             <li class="nav-main-heading">
                                 <span class="sidebar-mini-visible">TA</span><span class="sidebar-mini-hidden text-primary">Tugas Akhir</span>
                             </li>
+                            <li>
+                            <a class="{{ request()->is('kp/seminar') || request()->is('kp/seminar/*') ? ' active' : '' }}" href="{{url('PresensiSeminarHasil')}}">
+                                    <i class="si si-note"></i><span class="sidebar-mini-hide">Bantuan Presensi Seminar Hasil</span>
+                                </a>
+                            </li> 
                             <li class="{{ request()->is('ta/pengajuan/*') ? ' open' : '' }}">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span class="sidebar-mini-hide">Tugas Akhir</span></a>
                                 <ul>
@@ -413,7 +418,7 @@
                             </li>
                             <li>
                                 <a class="{{ request()->is('kaprodi/halpengesahan') || request()->is('kaprodi/halpengesahan/*') ? ' active' : '' }}" href="{{route('kaprodi.halpengesahan.index')}}">
-                                    <i class="si si-layers"></i><span class="sidebar-mini-hide">Hal Pengesahan</span>
+                                    <i class="si si-layers"></i><span class="sidebar-mini-hide">Hal Pengesahan TA</span>
                                 </a>
                             </li>
                             @endcan
