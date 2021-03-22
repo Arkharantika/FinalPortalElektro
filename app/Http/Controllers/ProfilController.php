@@ -120,11 +120,21 @@ class ProfilController extends Controller
                 $mhs = Mahasiswa::find($request->id);
                 $mhs->ipk = $request->ipk;
                 $mhs->sks = $request->sks;
+                $mhs->no_telp = $request->no_telp;
                 $mhs->save();
                 
                 $data = User::find($id);
                 $data->name = $request->name;
                 $data->save();
+
+                return redirect(route('profil.index'))->with('message','Profil Berhasil di Perbarui!');
+                break;
+            
+            case 'dataDosen':
+                $dosen = Dosen::where('nip',Auth::user()->nim)->first();
+               
+                $dosen->no_telp = $request->no_telp;
+                $dosen->save();
 
                 return redirect(route('profil.index'))->with('message','Profil Berhasil di Perbarui!');
                 break;

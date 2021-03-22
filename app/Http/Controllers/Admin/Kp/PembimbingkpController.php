@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Kp;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
 use App\Models\Jabatan;
+use App\Models\WA;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
@@ -107,7 +108,15 @@ class PembimbingkpController extends Controller
         ]);
         Mahasiswa::where('id',$id)->update($validatedMhs);
 
-        return redirect(route('admin.pembimbing.index'))->with('message','Data Pembimbing KP Berhasil di Update!');
+        $no = Mahasiswa::where('id',$id)->first();
+        $es = $no->no_telp;
+
+        // return $id;
+        // $koorkp = Jabatan::Testing1($id);
+
+        return redirect()->away('http://localhost:8100/trypost/'.$es);
+
+        // return redirect(route('admin.pembimbing.index'))->with('message','Data Pembimbing KP Berhasil di Update!');
     }
 
     /**
@@ -119,5 +128,9 @@ class PembimbingkpController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hello(){
+        return redirect()->away('http://localhost:8100');
     }
 }

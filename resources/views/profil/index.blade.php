@@ -105,6 +105,12 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-12">
+                                <label for="not_telp">No Whatsapp</label>
+                                <input type="text" class="form-control form-control-lg" id="no_telp" name="no_telp" value="{{$data->no_telp}}" placeholder="Nomor whatsapp yang aktif" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
                                 <button type="submit" name="action" value="data" class="btn btn-alt-primary">Update</button>
                             </div>
                         </div>
@@ -135,6 +141,17 @@
                             <div class="col-12">
                                 <label for="profile-settings-nip">NIP</label>
                                 <input type="text" class="form-control form-control-lg" id="profile-settings-name" name="nip" placeholder="Enter your nip.." value="{{$dosen->nip}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label for="profile-settings-nip">No Whatsapp</label>
+                                <input type="text" class="form-control form-control-lg" id="no_telp" name="no_telp" placeholder="Enter your nip.." value="{{$dosen->no_telp}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <button type="submit" name="action" value="dataDosen" class="btn btn-alt-primary">Update Data !</button>
                             </div>
                         </div>
                         <!-- END Personal -->

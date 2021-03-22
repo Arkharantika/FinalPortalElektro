@@ -64,13 +64,15 @@
                         <div class="block-content block-content-full">
                             <div class="row pt-10 pb-10 text-center h-50">
                                 <div class="col-12 border-b">
-                                    <div class="font-size-sm font-w600 text-elegance">{{$mhs->nama_dosen}}</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Pembimbing Akademik</div>
+                                    <div class="font-w600 text-elegance">{{$mhs->nama_dosen}}</div>
+                                    <br>
+                                    <div class=" font-size-sm font-w600 text-uppercase text-muted">Pembimbing Akademik</div>
                                 </div>
-                                <div class="col-12">
+                                <!-- <div class="col-12">
                                     <div class="font-size-h5 font-w600 text-pulse">{{$mhs->status_mhs}}</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-muted">Status Mahasiswa</div>
-                                </div>
+                                </div> -->
+                                <br><br><br>
                             </div>
                         </div>
                     </div>
@@ -221,6 +223,26 @@
                         </div>
                     </a>
                 </div>
+
+                <div class="col-md-12">
+                    <a class="block block-rounded block-transparent text-center bg-gd-lake" href="{{route('ta.pendadaran.index')}}">
+                        <div class="block-content bg-black-op-5">
+                            <p class="font-w600 text-white-op">
+                                <i class="fa fa-mortar-board mr-5"></i> STATUS MAHASISWA
+                            </p>
+                        </div>
+                        <div class="block-content">
+                            <p class="font-size-h1 font-w600 text-white">
+                                <strong>
+                                {{$mhs->status_mhs}}
+                                </strong>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
             </div>
             @endcan
             <!-- Close Mahasiswa  -->
