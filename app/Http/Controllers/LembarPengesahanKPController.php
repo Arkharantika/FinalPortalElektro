@@ -209,7 +209,7 @@ class LembarPengesahanKPController extends Controller
             'ya_koor' => 1,
         ]);
 
-        return redirect(route('admin.laporan.index'))->with('message','Proposal KP Berhasil Disetujui');
+        return redirect(route('admin.permohonan.index'))->with('message','Proposal KP Berhasil Disetujui');
     }
 
     public function setujuKaprodiProposal($id)
