@@ -358,7 +358,7 @@
         <div class="col-md-12">
             <div class="block block-rounded block-mode-hidden">
                 <div class="block-header bg-gd-aqua">
-                    <h3 class="block-title text-white">Bimbingan Dosen</h3>
+                    <h3 class="block-title text-white">Total Bimbingan Dosen</h3>
                     <div class="block-options">
                         <!-- To toggle block's content, just add the following properties to your button: data-toggle="block-option" data-action="content_toggle" -->
                         <button type="button" class="btn-block-option text-white" data-toggle="block-option" data-action="content_toggle"></button>
@@ -369,12 +369,14 @@
                     <table class="table table-borderless table-striped table-vcenter js-dataTable-full" id="example">
                         <thead class="thead-light">
                             <tr>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 3%;">No</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 5%;">No</th>
                                 <th class="d-none d-sm-table-cell text-center" style="width: 15%;">NIP</th>
-                                <th class="text-center" style="width: 25%;">Nama</th>
-                                <th class="text-center" style="width: 20%;">Total Bimbingan</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 20%;">Pembimbing 1</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 20%;">Pembimbing 2</th>
+                                <th class="text-center" style="width: 20%;">Nama</th>
+                                <th class="text-center" style="width: 10%;">Total Bimbingan</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Total Bimbingan 1</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Total Bimbingan 2</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Bimbingan 1 Aktif</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Bimbingan 2 Aktif</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -394,6 +396,12 @@
                                 </td>
                                 <td class="d-none d-sm-table-cell font-size-sm text-center">
                                     {{$row->pembimbing2($row->id)}}
+                                </td>
+                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                    {{$row->pembimbing1AKtif($row->id)}}
+                                </td>
+                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                    {{$row->pembimbing2Aktif($row->id)}}
                                 </td>
                             </tr>
                             @endforeach
@@ -475,6 +483,7 @@
                                     </tbody>
                                 </table>
                             </div>
+
                             <div class="tab-pane fade fade-up" id="btabs-animated-slideup-profile" role="tabpanel">
                                 <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
                                 <table class="table table-borderless table-striped table-vcenter js-dataTable-full" id="example">
@@ -505,6 +514,8 @@
                                     </tbody>
                                 </table>
                             </div>
+
+
                         </div>
                     </div>
                     <!-- END Block Tabs Animated Slide Up -->
@@ -513,6 +524,7 @@
         </div>
     </div>
     <!-- Close Log Book TA -->
+  
 </div>
 <!-- END Page Content -->
 @endsection

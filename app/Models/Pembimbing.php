@@ -54,4 +54,16 @@ class Pembimbing extends Model
         return Pembimbing::join('ref_dosen','ref_dosen.id','=','ta_pembimbing.pembimbing')
         ->where('ref_dosen.id',$idta)->where('pem',2)->count();
     }
+
+    //View Dashboard(Guest)
+    public function pembimbing1Aktif($idta){
+        return Pembimbing::join('ref_dosen','ref_dosen.id','=','ta_pembimbing.pembimbing')
+        ->where('ref_dosen.id',$idta)->where('pem',1)->where('status_pendadaranpem',null)->count();
+    }
+
+    //View Dashboard(Guest)
+    public function pembimbing2Aktif($idta){
+        return Pembimbing::join('ref_dosen','ref_dosen.id','=','ta_pembimbing.pembimbing')
+        ->where('ref_dosen.id',$idta)->where('pem',2)->where('status_pendadaranpem',null)->count();
+    }
 }

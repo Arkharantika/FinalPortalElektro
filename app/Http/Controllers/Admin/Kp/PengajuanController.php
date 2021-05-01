@@ -120,8 +120,6 @@ class PengajuanController extends Controller
                 
                 return redirect()->away('http://localhost:8100/trypost2/'.$no);
 
-                // return redirect(route('admin.pengajuan.index'))->with('message','Pengajuan KP Berhasil di Update!');
-                // break;
     
             case 'tolak':
                 KP::where('kp.id',$id)->update([
