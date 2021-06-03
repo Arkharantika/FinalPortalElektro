@@ -482,6 +482,11 @@
                             <li class="nav-main-heading">
                                 <span class="sidebar-mini-visible">KTA</span><span class="sidebar-mini-hidden text-primary">Koordinator TA</span>
                             </li>
+                            <li>
+                                <a class="{{ request()->is('koordinator/logbookta') || request()->is('koordinator/logbookta/*') ? ' active' : '' }}" href="{{url('/batasan')}}">
+                                    <i class="si si-envelope"></i><span class="sidebar-mini-hide">Batasan Jumlah Bimbingan</span>
+                                </a>
+                            </li>
                             <li class="{{ request()->is('koordinator/ta/*') ? ' open' : '' }}">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-star"></i><span class="sidebar-mini-hide">Tugas Akhir</span></a>
                                 <ul>

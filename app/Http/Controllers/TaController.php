@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\batasan_bimbingan;
 use App\Models\Matakuliah;
 use App\Models\Peminatan;
 use App\Models\Ta;
@@ -100,6 +101,10 @@ class TaController extends Controller
             'pembimbing2' => 'required|different:pembimbing1',
         ]);
         // dd($validatedData);
+
+        $batas = batasan_bimbingan::where('id',1)->first();
+        $barier = $batas->jumlah_bimbingan;
+
         $pembimbing = 'pembimbing1';
         $pembimbing2 = 'pembimbing2';
 
@@ -109,9 +114,9 @@ class TaController extends Controller
         $check2 = Pembimbing::join('ref_dosen','ref_dosen.id','=','ta_pembimbing.pembimbing')
         ->where('ref_dosen.id',$request->$pembimbing2)->where('pem',2)->where('status_pendadaranpem',null)->count();
 
-        if($check >= 6){
+        if($check >= $barier){
             return redirect('ta/pengajuan/pendaftaran')->with('message','Pembimbing 1 sudah penuh !');
-        }else if($check2 >=6){
+        }else if($check2 >= $barier){
             return redirect('ta/pengajuan/pendaftaran')->with('message','Pembimbing 2 sudah penuh !');
         }else{
             $ta = Ta::create($validatedTa); 
@@ -149,8 +154,12 @@ class TaController extends Controller
                 'ta_id' => $ta_id,
                 'status_kbk' => 'PENDING',
             ]);
-            // alihkan halaman ke halaman index
-            return redirect(route('ta.pendaftaran.index'))->with('message','Terimakasih telah mendaftar Tugas Akhir!');
+
+            $koorta = Jabatan::Ta();
+            $es = $koorta->no_telp;
+
+            return redirect()->away('https://localhost:8000/notifKoorTA-pendaftaran/'.$es);
+            // return redirect(route('ta.pendaftaran.index'))->with('message','Terimakasih telah mendaftar Tugas Akhir!');
         }
        //return redirect('ta/pendaftaran')->with('message','Terimakasih telah mengajukan Kerja Praktek!');
     }
@@ -288,5 +297,9 @@ class TaController extends Controller
           ];
         $pdf = PDF::loadview('ta.cetak_pendaftaran',compact('data','matkul','pembimbing','kbk','ta'),[],$config);
         return $pdf->stream();
+    }
+
+    public function batasan_bimbingan(){
+        return view('yuyun');
     }
 }

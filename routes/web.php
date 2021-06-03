@@ -322,5 +322,9 @@ Route::get('LembarPengesahanKP/Kaprodi/Setuju/{setuju}','LembarPengesahanKPContr
 Route::get('LembarPengesahanKP/Kaprodi/SetujuProposal/{setuju}','LembarPengesahanKPController@setujuKaprodiProposal')
     ->name('setujuKaprodiProposal');
 
+// -> Redirect Dari Portal WA
+Route::get('pendingKP','HomeController@pendingKP')->name('pendingKP');
 
-
+// -> Untuk Batasan Jumlah Bimbingan
+// Route::get('batasan','TaController@batasan_bimbingan')->name('batasan_bimbingan');
+Route::resource('batasan','batasanController');
