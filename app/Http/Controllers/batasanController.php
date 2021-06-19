@@ -15,7 +15,11 @@ class batasanController extends Controller
      */
     public function index()
     {
-        return view('yuyun');
+        $jumlah = batasan_bimbingan::where('id',1)->get()->first();
+        $jumlahnya = $jumlah->jumlah_bimbingan;
+
+        // return $jumlahnya;
+        return view('yuyun',compact('jumlahnya'));
     }
 
     /**

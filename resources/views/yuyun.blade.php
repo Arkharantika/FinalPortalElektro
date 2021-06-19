@@ -23,6 +23,7 @@
                         <div class="block-content block-content-full tab-content" style="min-height: 100px;">
                             <!-- Step 1 -->
                             <div class="tab-pane active" id="wizard-validation-classic-step1" role="tabpanel">
+                                <p><strong>Batasan saat ini : {{$jumlahnya}}</strong></p>
                                 <div class="form-group">
                                     <label for="sks">Jumlah Maksimum Bimbingan TA Tiap Dosen<span class="text-danger"></span></label>
                                     <input required type="text" class="form-control" name="pic" placeholder="Contoh : 6">
