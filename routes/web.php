@@ -328,3 +328,4 @@ Route::get('pendingKP','HomeController@pendingKP')->name('pendingKP');
 // -> Untuk Batasan Jumlah Bimbingan
 // Route::get('batasan','TaController@batasan_bimbingan')->name('batasan_bimbingan');
 Route::resource('batasan','batasanController');
+Route::resource('penguji','pengujianController');

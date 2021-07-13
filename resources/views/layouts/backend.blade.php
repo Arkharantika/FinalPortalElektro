@@ -483,6 +483,11 @@
                                 <span class="sidebar-mini-visible">KTA</span><span class="sidebar-mini-hidden text-primary">Koordinator TA</span>
                             </li>
                             <li>
+                                <a class="{{ request()->is('koordinator/logbookta') || request()->is('koordinator/logbookta/*') ? ' active' : '' }}" href="{{url('/penguji')}}">
+                                    <i class="si si-folder-alt"></i><span class="sidebar-mini-hide">List Penguji</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a class="{{ request()->is('koordinator/logbookta') || request()->is('koordinator/logbookta/*') ? ' active' : '' }}" href="{{url('/batasan')}}">
                                     <i class="si si-envelope"></i><span class="sidebar-mini-hide">Batasan Jumlah Bimbingan</span>
                                 </a>
